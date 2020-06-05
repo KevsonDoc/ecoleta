@@ -1,0 +1,30 @@
+Identificando entidades da aplicação
+- Points (Pontos de coletas)
+- Tabela pivot | point_itens (Relacionamento dos itens que um ponto coleta)
+- Items (Items para coletas)
+- Muitos para muitas ou n para n (gera um tabela Pivot)
+
+points
+    - image
+    - name
+    - email
+    - whatszapp
+    - latitude
+    - longitude
+    - city
+    - uf
+items
+    - image
+    - title
+point_items
+    - point_id
+    - item_id
+
+Migrations = Histórico do banco de 
+
+--------------
+FUNCIONALIDADES DA APLICAÇÃO
+    - Cadastro de pontos de coletas
+    - Lista os items de coleta
+    - Listar pontos(filtro estado/cidade/items);
+    - Listar um ponto de coleta especifico
