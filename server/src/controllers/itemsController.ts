@@ -10,7 +10,7 @@ class ItemsController {
             return {
                 id: item.id,
                 title: item.title,
-                image_url: `http://localhost:3333/uploads/${item.image}`,
+                image_url: `http://192.168.15.139:3333/uploads/${item.image}`,//http://192.168.15.139:3333/uploads/oleo.svg
             };
         });
         return response.json(serializedItems);
