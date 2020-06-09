@@ -16,8 +16,15 @@ class PointsController {
             .where('uf', String(uf))
             .distinct()
             .select('points.*');
+
+            const serializedPoints = points.map(point => {
+                return {
+                    ...points,
+                    image_url: `http://192.168.15.139:3333/uploads/${point.image}`,//http://192.168.15.139:3333/uploads/oleo.svg
+                };
+            });
   
-        return response.json(points);
+        return response.json(serializedPoints);
     }
     
     async show(request:Request, response: Response) {
@@ -34,7 +41,12 @@ class PointsController {
             .where('point_items.point_id', id)
             .select('items.title');
 
-        return response.json({ point, items });
+        const serializedPoint = {
+            ...point,
+            image_url: `http://192.168.15.139:3333/uploads/${point.image}`
+        };
+
+        return response.json({ point: serializedPoint, items });
     }
 
     async create(request:Request, response:Response) {
@@ -52,7 +64,7 @@ class PointsController {
         const trx = await knex.transaction();
     
         const point = {
-            image: 'https://images.unsplash.com/photo-1556767576-5ec41e3239ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
+            image: request.file.filename,
             name,
             email,
             whatsapp,
@@ -66,7 +78,10 @@ class PointsController {
     
         const point_id = insertedIds[0];
     
-        const pointItems = items.map((item_id:Number) => {
+        const pointItems = items
+            .split(',')
+            .map((item: string) => Number(item.trim()))
+            .map((item_id:Number) => {
             return {
                 item_id,
                 point_id,

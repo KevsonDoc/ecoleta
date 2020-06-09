@@ -1,0 +1,14 @@
+{
+    "name": "Mercado do seu Zé",
+    "email": "contato@imperatris.com.br",
+    "whatsapp": "123123123",
+    "latitude": -46.81273,
+    "longitude": -35.23423,
+    "city": "Brasília",
+    "uf": "DF",
+    "items": [
+		1,
+		2,
+		6
+	]
+}
