@@ -1,13 +1,14 @@
-import { Route, BrowserRouter } from 'react-router-dom';
-import React from 'react';
-import Home from './pages/Home';
+import { BrowserRouter, Route, Routes as RoutesContainer } from 'react-router-dom';
 import CreatePoint from './pages/CreatePoint';
+import Home from './pages/Home';
 
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Route component={Home} path="/" exact/>
-            <Route component={CreatePoint} path="/create-point" />;
+        <RoutesContainer>
+            <Route element={<Home />} path="/" />
+            <Route element={<CreatePoint />} path="/create-point" />;
+        </RoutesContainer>
         </BrowserRouter>
     )
 }
