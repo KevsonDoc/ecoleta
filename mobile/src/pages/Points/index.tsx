@@ -7,6 +7,7 @@ import MapView, { Marker } from 'react-native-maps';
 import { SvgUri } from 'react-native-svg';
 import * as Location from 'expo-location';
 import api from '../../services/api';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface Item {
     id: number;
@@ -28,8 +29,14 @@ interface Params {
     city: string
 }
 
+type RootStackParamList = {
+    Detail: {    
+        point_id: number
+    };
+  };
+
 const Points = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     const route = useRoute();
 
     const routeParams = route.params as Params;
@@ -48,7 +55,6 @@ const Points = () => {
     const [ initialPosition ,setInitialPosition ] = useState<[number,number]>([0, 0]);
     const [ points, setPoints ] = useState<Point[]>([]);
     /*==============================|ESTADO|==============================*/
-
 
 
     /*==============================|EFECT|==============================*/

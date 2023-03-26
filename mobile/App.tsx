@@ -8,7 +8,6 @@ import { Ubuntu_700Bold, useFonts } from '@expo-google-fonts/ubuntu';
 
 import Routes from './src/routes';
 
-
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -17,7 +16,7 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return <Text>Carreganto</Text>
+    return <Text>Carreganto...</Text>
   }
 
   return (
