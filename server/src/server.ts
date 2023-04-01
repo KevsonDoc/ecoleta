@@ -1,16 +1,16 @@
 import { errors } from "celebrate";
 import cors from "cors";
-import express, { Application, Router } from "express";
+import express, { Application } from "express";
 import path from "path";
 import { Routes } from "./routes/index.routes";
 
 export class Server {
   private app: Application;
-  private routes: Routes;
+  private appRoutes: Routes;
 
   constructor() {
     this.app = express();
-    this.routes = new Routes();
+    this.appRoutes = new Routes();
   }
 
   public run() {
@@ -21,7 +21,7 @@ export class Server {
       express.static(path.resolve(__dirname, "..", "uploads")),
     );
     this.app.use(errors());
-    this.app.use("/api", this.routes.routes);
+    this.app.use("/api", this.appRoutes.routes);
     this.app.listen(3333, () =>
       console.log("\n============ || SERVER IS RUNNING || ============\n"),
     );
