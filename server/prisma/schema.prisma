@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  secureId String  @default(uuid())
+  email    String
+  password String
+  point    Point[]
+  Role     Role[]
+}
+
+model Role {
+  id          Int    @id @default(autoincrement())
+  secureId    String @default(uuid())
+  name        String
+  description String
+  userId      Int
+  user        User   @relation(fields: [userId], references: [id])
+}
+
+model Point {
+  id            Int             @id @default(autoincrement())
+  secureId      String          @default(uuid())
+  image         String
+  city          String
+  uf            String
+  latitude      Int
+  longitude     Int
+  userId        Int
+  PointCategory PointCategory[]
+  User          User            @relation(fields: [userId], references: [id])
+}
+
+model Category {
+  id            Int             @id @default(autoincrement())
+  secureId      String          @default(uuid())
+  image         String
+  title         String
+  PointCategory PointCategory[]
+}
+
+model PointCategory {
+  Point      Point    @relation(fields: [pointId], references: [id])
+  pointId    Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  assignedAt DateTime @default(now())
+
+  @@id([pointId, categoryId])
+}
