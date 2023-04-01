@@ -1,19 +1,29 @@
-import express from "express";
-import path from "path";
-import routes from "./routes";
-import cors from "cors";
 import { errors } from "celebrate";
+import cors from "cors";
+import express, { Application, Router } from "express";
+import path from "path";
+import { Routes } from "./routes/index.routes";
 
-const app = express();
+export class Server {
+  private app: Application;
+  private routes: Routes;
 
-app.use(cors());
-app.use(express.json()); //Colocando express para entender json
-app.use(routes); // Mágica das rotas sendo importadas para o arquivo principal
+  constructor() {
+    this.app = express();
+    this.routes = new Routes();
+  }
 
-app.use("/uploads", express.static(path.resolve(__dirname, "..", "uploads")));
-
-app.use(errors());
-
-app.listen(3333, () =>
-  console.log("\n============ || SERVER IS RUNNING || ============\n"),
-);
+  public run() {
+    this.app.use(cors());
+    this.app.use(express.json());
+    this.app.use(
+      "/uploads",
+      express.static(path.resolve(__dirname, "..", "uploads")),
+    );
+    this.app.use(errors());
+    this.app.use("/api", this.routes.routes);
+    this.app.listen(3333, () =>
+      console.log("\n============ || SERVER IS RUNNING || ============\n"),
+    );
+  }
+}
