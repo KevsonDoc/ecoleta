@@ -2,7 +2,7 @@ import { errors } from "celebrate";
 import cors from "cors";
 import express, { Application } from "express";
 import path from "path";
-import { Routes } from "./routes/index.routes";
+import { Routes } from "./routes";
 
 export class Server {
   private app: Application;

@@ -3,7 +3,7 @@ import { Controller, Post, Response } from "@decorators/express";
 import { PrismaClient } from "@prisma/client";
 import { Response as IResponse } from "express";
 
-@Controller("/auth")
+@Controller("/user")
 @Injectable()
 export class AuthController {
   private prisma: PrismaClient;

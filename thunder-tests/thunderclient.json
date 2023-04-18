@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "c860d85d-2606-40ba-a4fc-b1a867c85c3c",
+    "colId": "a51da86b-ec8d-4a91-9a88-602030e63108",
+    "containerId": "",
+    "name": "Sign",
+    "url": "{{url}}/api/auth/sign",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-16T21:19:13.881Z",
+    "modified": "2023-04-16T21:21:52.209Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

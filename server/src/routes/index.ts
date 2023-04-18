@@ -1,4 +1,4 @@
-import { Router as ExpressRoutes, Request, Response } from "express";
+import { Router as ExpressRoutes } from "express";
 import { AuthRoutes } from "./auth.routes";
 import { UserRoutes } from "./user.routes";
 
@@ -11,12 +11,7 @@ export class Routes {
     this.routes = ExpressRoutes();
     this.authRoutes = new AuthRoutes();
     this.userRoutes = new UserRoutes();
-    this.routes.use("/auth", this.authRoutes.route);
-    this.routes.use("/user", this.userRoutes.route);
-    this.routes.get("/", (_request: Request, response: Response) => {
-      return response.status(200).json({
-        message: "Hello World",
-      });
-    });
+    this.routes.use(this.authRoutes.route);
+    this.routes.use(this.userRoutes.route);
   }
 }
