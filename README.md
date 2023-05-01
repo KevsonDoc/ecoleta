@@ -14,6 +14,10 @@ Apesar de entender bem os conceitos do solid e da arquitetura hexagonal na teori
 
 Eu realmente estou impressionado com o s.o.l.i.d. na prática me lembra muito das aulas de programação orientada a objeto no técnico. Eu amava (apesar de ter extrema dificuldade em entender) transformar desde uma cadeira até a escola em um objeto com classes, sempre podendo quebrar em mais objetos e extendenlos em classes.
 
+...continua
+
+Isso era pra ser algo rápido mas queria expor minha visão e o quão animado estou em usar hexagonal e s.o.l.i.d mas vejo que vou ter que fazer um blog (risos)
+
 ## Adapter
 
 Inclui todos os adaptadores desde ORM a validação de dados
