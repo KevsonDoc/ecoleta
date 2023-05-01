@@ -1,14 +1,15 @@
-import { Server } from "./server";
+import { ServerModule } from "infra/server";
+
 class App {
-  private server: Server;
+  private serverModule: ServerModule;
 
   constructor() {
-    this.server = new Server();
+    this.serverModule = new ServerModule();
   }
 
   start() {
-    this.server.run();
+    this.serverModule.start();
   }
 }
 
-new App().start();
+export const app = new App();
