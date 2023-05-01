@@ -16,7 +16,7 @@ Eu realmente estou impressionado com o s.o.l.i.d. na prática me lembra muito da
 
 ...continua
 
-Isso era pra ser algo rápido mas queria expor minha visão e o quão animado estou em usar hexagonal e s.o.l.i.d mas vejo que vou ter que fazer um blog (risos)
+Isso era pra ser algo rápido mas queria expor minha visão e o quão animado estou em usar hexagonal e s.o.l.i.d mas vejo que vou ter que fazer um blog (risos...)
 
 ## Adapter
 
