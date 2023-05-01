@@ -14,3 +14,11 @@
 - Request Param: Parâmetros que vem na própria rota que identicam um recurso.
 - Query Param: Parâmetros que vem na própria rota geralmente opicionais para filtros, paginação.
 - Request Body: Parâmetro para criação/atualização de informações.
+
+## Adapter
+
+Inclui todos os adaptadores desde ORM a validação de dados
+
+## port
+
+Onde há todos os contrados onde liga as portas aos user cases/services

@@ -1,7 +1,8 @@
-import { UserEntity } from "../entity/user";
+import { UserEntity } from "../../entity/user";
 
 export abstract class SaveUser {
   constructor(readonly user: UserEntity) {}
+
   execute() {
     //
   }
